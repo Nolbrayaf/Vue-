@@ -1,5 +1,6 @@
 # Vue+
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 This template should help get you started developing with Vue 3 in Vite.
 
@@ -28,6 +29,9 @@ npm run dev
 ```sh
 npm run build
 ```
+=======
+VueJS Project, inspired by Disney+ 
+>>>>>>> f888fa9517f391b67475de780716fa2131983476
 =======
 VueJS Project, inspired by Disney+ 
 >>>>>>> f888fa9517f391b67475de780716fa2131983476
