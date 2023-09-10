@@ -1,0 +1,10 @@
+<template>
+  <div class="container">
+    <h1>A propos</h1>
+    
+  </div>
+</template>
+
+<style>
+
+</style>
