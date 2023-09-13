@@ -1,7 +1,7 @@
 <script setup>
 import Button from "./Button.vue"
 import { RouterLink } from 'vue-router'
-import{ref} from 'vue'
+import { ref } from 'vue'
 
 const isConnected = ref(false)
 
@@ -20,31 +20,41 @@ const isConnected = ref(false)
 
             <ul>
                 <RouterLink to="home">
-                    <li>Accueil</li>
+                    <li><span class="lg">Accueil</span>
+                        <img src="../assets/images/home.svg" class="mb" alt="Accueil">
+                    </li>
+
                 </RouterLink>
 
                 <RouterLink to="home">
-                    <li>Films</li>
+                    <li><span class="lg">Films</span>
+                        <img src="../assets/images/movies.svg" class="mb" alt="Films">
+                    </li>
                 </RouterLink>
 
                 <RouterLink to="home">
-                    <li>Catégories</li>
+                    <li><span class="lg">Catégories</span>
+                        <img src="../assets/images/category.svg" class="mb" alt="Catégories">
+                    </li>
                 </RouterLink>
 
                 <RouterLink to="about">
-                    <li>A propos</li>
+                    <li><span class="lg">A propos</span>
+                        <img src="../assets/images/about.svg" class="mb" alt="A propos">
+                    </li>
                 </RouterLink>
             </ul>
 
         </div>
 
         <div class="right-side">
-            <Button v-if="!isConnected" @click="isConnected = !isConnected">Connexion</Button>
+            <Button class="button" v-if="!isConnected" @click="isConnected = !isConnected">Connexion</Button>
             <div v-if="isConnected" class="user-info">
-                <strong>
+                <strong class="lg">
                     Brayan NOLF
                 </strong>
                 <img src="../assets/profil.jpg" alt="Photo de profil">
+                <span @click="isConnected = !isConnected">X</span>
             </div>
         </div>
     </nav>
@@ -60,18 +70,24 @@ ul {
     text-decoration: none;
 }
 
-
-
-nav {
-    max-width: 1280px;
-    font-size: 1.2rem;
-    justify-content: space-between;
-    color:white;
-    padding: 1rem 0.75rem;
-    max-width: 100%;
+li img {
+    display:none;
+    filter: invert(92%) sepia(63%) saturate(1%) hue-rotate(67deg) brightness(104%) contrast(101%);
+    height:35px;
+    width: 35px;
 }
 
-nav a:visited{
+nav {
+    max-width: 100vw;
+    font-size: 1.2rem;
+    justify-content: space-between;
+    color: white;
+    padding: 1rem 0.75rem;
+    height: 4rem;
+
+}
+
+nav a:visited {
     color: white;
 }
 
@@ -93,7 +109,7 @@ nav a:visited{
     list-style: none;
 }
 
-.left-side li::before{
+.left-side li::before {
     content: "";
     position: absolute;
     left: 0;
@@ -106,21 +122,46 @@ nav a:visited{
     opacity: 0;
 }
 
-.left-side li:hover::before{
+.left-side li:hover::before {
     width: 100%;
     opacity: 1;
 }
 
+.right-side {
+    position: relative;
+}
 
-.right-side .user-info{
-    display:flex;
+.right-side .user-info {
+    display: flex;
     align-items: center;
     gap: 15px;
 }
-.right-side img{
-    max-height: 82px;
-    max-width: 82px;
+
+.right-side img {
+    max-height: 50px;
+    max-width: 50px;
     border-radius: 50%;
 }
 
+.right-side span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.lg{
+    display:block;
+}
+.mb{
+    display:none;
+}
+@media screen and (max-width: 680px) {
+    .lg{
+        display:none;
+    }
+    .mb{
+        display:block;
+    }
+}
 </style>
